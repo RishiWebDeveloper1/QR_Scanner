@@ -1,6 +1,7 @@
 let search = document.getElementById("search");
 let message = document.getElementById("message");
 let searchURL = document.getElementById("searchURL");
+let copyButtonBox = document.getElementById("copy-button");
 let cameraMode = "environment";
 let interval = 0;
 // code for open camera and loop scannig of QR code..
@@ -35,7 +36,7 @@ video.addEventListener('play', function () {
             if (search.innerHTML.trim() !== '') {
                 let beep = document.getElementById("beep");
                 beep.play();
-                navigator.vibrate([200, 100, 200]);
+                navigator.vibrate([200]);
             }
             // You can do whatever you want with the scanned QR code data here
             // For example, display it on the page or send it to a server
@@ -55,7 +56,7 @@ function searchWeb() {
         searchURL.click();
         message.style.color = "black";
         message.style.backgroundColor = "transperant";
-        message.innerHTML = "search bro now";
+        message.innerHTML = "Scan &nbsp&nbsp[QR Code]";
     }
 }
 
@@ -75,4 +76,13 @@ function changeCameraMode() {
         .catch(function (err) {
             console.error('Error accessing the camera.', err);
         });
+}
+
+function copyText() {
+    copyButtonBox.innerText = 'Text Copied!';
+    copyButtonBox.style.backgroundColor = "green";
+    setTimeout(function () {
+        copyButtonBox.innerText = 'Copy Text';
+        copyButtonBox.style.backgroundColor = "gray";
+    }, 3000);
 }
