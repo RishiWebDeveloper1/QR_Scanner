@@ -28,9 +28,15 @@ video.addEventListener('play', function () {
         });
         if (code) {
             console.log('QR Code detected:', code.data);
+            search.style.height = '40px';
             search.innerHTML = code.data;
             var searchHeight = search.scrollHeight;
             search.style.height = searchHeight + 'px';
+            if (search.innerHTML.trim() !== '') {
+                let beep = document.getElementById("beep");
+                beep.play();
+                navigator.vibrate([200, 100, 200]);
+            }
             // You can do whatever you want with the scanned QR code data here
             // For example, display it on the page or send it to a server
         }
@@ -55,10 +61,10 @@ function searchWeb() {
 
 function changeCameraMode() {
     if (cameraMode == "environment") {
-        cameraMode == "user";
+        cameraMode = "user";
     }
     else {
-        cameraMode == "environment";
+        cameraMode = "environment";
     }
     clearInterval(interval);
     navigator.mediaDevices.getUserMedia({ video: { facingMode: cameraMode } })
