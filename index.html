@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div class="megacontainer">
+            <div class="container">
+                <div class="scanner-box">
+                    <div class="scanner">
+                        <video id="video" autoplay></video>
+                    </div>
+                </div>
+                <div class="container-box">
+                    <div class="search-box">
+                        <div class="search">
+                            <div id="search">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-box">
+                        <div class="button" onclick="searchWeb()">
+                            <img src="image\search.svg" alt="" class="search-icon">
+                        </div>
+                    </div>
+                </div>
+                <div id="message">search bro now</div>
+                <a href="" id="searchURL" target="_blank"></a>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.0.0/jsQR.js"></script>
+    <script src="https://unpkg.com/jsqr@1.0.0/dist/jsQR.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
