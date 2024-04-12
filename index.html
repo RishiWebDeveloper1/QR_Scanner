@@ -3,8 +3,50 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="keywords"
+        content="speaker cleaner, water cleaner, dust remover, speaker fix, fix, water, dust, not, working">
+    <meta name="description"
+        content="This site make sound that help to remove the dust and water in your speaker and make sound to clean the speaker">
+    <meta name="robots" content="index, follow"> <!-- Control search engine indexing behavior -->
+    <meta name="author" content="QR Scanner">
+    <meta name="language" content="English">
+    <meta name="category" content="Games">
+    <meta name="referrer" content="origin">
+    <meta name="copyright" content="2024, Rishi Vishwakarma [Developer]">
+    <meta name="generator" content="Rishi Vishwakarma [Developer]">
+    <meta name="revised" content="2024-04-04">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="General">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="QR Scanner">
+    <meta property="og:description"
+        content="Remove dust and water from your device speaker with soothing sounds. Speaker Cleaner generates sound frequencies to clean your speaker effectively.">
+    <meta property="og:url" content="https://rishiwebdeveloper1.github.io/speaker-cleaner/">
+    <meta property="og:image" content="https://rishiwebdeveloper1.github.io/speaker-cleaner/image/speaker-icon.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="QR Scanner">
+    <meta property="twitter:description"
+        content="Remove dust and water from your device speaker with soothing sounds. Speaker Cleaner generates sound frequencies to clean your speaker effectively.">
+    <meta property="twitter:image"
+        content="https://rishiwebdeveloper1.github.io/speaker-cleaner/image/speaker-icon.jpg">
+
+    <!-- WhatsApp -->
+    <meta property="og:site_name" content="QR Scanner">
+    <meta property="og:title" content="QR Scanner">
+    <meta property="og:description"
+        content="Remove dust and water from your device speaker with soothing sounds. Speaker Cleaner generates sound frequencies to clean your speaker effectively.">
+    <meta property="og:image" content="https://rishiwebdeveloper1.github.io/speaker-cleaner/image/speaker-icon.jpg">
+    <meta property="og:url" content="https://rishiwebdeveloper1.github.io/speaker-cleaner/">
+    <meta property="og:type" content="website">
+    <meta property="og:whatsapp" content="send">
+    <title>QR Scanner</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,12 +56,10 @@
             <div class="container">
                 <div class="scanner-box">
                     <div class="scanner">
-                        <div class="scanner-video">
-                            <video id="video" autoplay></video>
-                        </div>
-                        <div class="rotate-cam" onclick="changeCameraMode()">
+                        <div class="scanner-video"></div>
+                        <video id="video" autoplay></video>
+                        <div id="rotate-cam" onclick="changeCameraMode()">
                             <audio src="sound\beep_sound.wav" id="beep"></audio>
-                            <img src="image\switch-camera.svg" alt="rotate camera" id="rotate-cam-icon">
                         </div>
                     </div>
                 </div>

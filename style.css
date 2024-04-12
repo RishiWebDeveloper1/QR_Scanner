@@ -62,7 +62,7 @@ main {
 
 .scanner {
     width: 100%;
-    height: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -72,20 +72,26 @@ main {
 #video {
     width: 80%;
     height: 90%;
+    max-width: 400px;
     border-radius: 10px;
 }
 
-.rotate-cam {
-    width: 60px;
-    height: 60px;
+#rotate-cam {
+    width: 40px;
+    min-height: 40px;
     background-color: white;
+    background-image: url("image/switch-camera.svg") ;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    box-shadow: 0px 0px 0px 10px white;
     border-radius: 1000px;
+    font-size: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#rotate-cam-icon {
+.rotate-cam-icon {
     width: 70%;
     height: 70%;
 }
@@ -101,15 +107,17 @@ main {
 .container-box {
     width: 100%;
     max-width: 400px;
-    margin-top: 50px;
-    background-color: white;
-    border: 3px solid black;
+    margin-top: 40px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .search-box {
     width: 300px;
+    max-width: 254px;
     height: 100%;
+    box-shadow: 0px 0px 0px 2px black;
 }
 
 #search {
@@ -118,6 +126,7 @@ main {
     min-height: 40px;
     padding: 5px;
     word-wrap: break-word;
+    text-align: start;
     background-color: white;
 }
 
@@ -126,7 +135,7 @@ main {
     height: 40px;
     color: white;
     background-color: red;
-    box-shadow: inset 1px 0px 0px 1px black;
+    box-shadow: 0px 0px 0px 2px black;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -143,11 +152,11 @@ main {
     height: 40px;
     color: white;
     background-color: rgb(81, 81, 81);
-    box-shadow: inset 1px 0px 0px 1px black;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0px 0px 0px 2px black;
 }
 
 #message {
