@@ -2,6 +2,7 @@ let search = document.getElementById("search");
 let message = document.getElementById("message");
 let searchURL = document.getElementById("searchURL");
 let cameraMode = "environment";
+let interval = 0;
 // code for open camera and loop scannig of QR code..
 const video = document.getElementById('video');
 
@@ -17,7 +18,7 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: cameraMode } })
 video.addEventListener('play', function () {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
-    setInterval(function () {
+    interval = setInterval(function () {
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -54,17 +55,18 @@ function searchWeb() {
 
 function changeCameraMode() {
     if (cameraMode == "environment") {
-        cameraMode = "user";
+        cameraMode == "user";
     }
     else {
-        cameraMode = "environment";
+        cameraMode == "environment";
     }
+    clearInterval(interval);
     navigator.mediaDevices.getUserMedia({ video: { facingMode: cameraMode } })
-    .then(function (stream) {
-        video.srcObject = stream;
-        video.play();
-    })
-    .catch(function (err) {
-        console.error('Error accessing the camera.', err);
-    });
+        .then(function (stream) {
+            video.srcObject = stream;
+            video.play();
+        })
+        .catch(function (err) {
+            console.error('Error accessing the camera.', err);
+        });
 }
