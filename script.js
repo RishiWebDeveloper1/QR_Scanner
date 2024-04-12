@@ -54,10 +54,10 @@ function searchWeb() {
 
 function changeCameraMode() {
     if (cameraMode == "environment") {
-        cameraMode == "user";
+        cameraMode = "user";
     }
     else {
-        cameraMode == "environment";
+        cameraMode = "environment";
     }
     navigator.mediaDevices.getUserMedia({ video: { facingMode: cameraMode } })
     .then(function (stream) {
