@@ -5,7 +5,7 @@ let searchURL = document.getElementById("searchURL");
 // code for open camera and loop scannig of QR code..
 const video = document.getElementById('video');
 
-navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
     .then(function (stream) {
         video.srcObject = stream;
         video.play();
