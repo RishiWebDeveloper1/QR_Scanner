@@ -1,11 +1,11 @@
 let search = document.getElementById("search");
 let message = document.getElementById("message");
 let searchURL = document.getElementById("searchURL");
-
+let cameraMode = "environment";
 // code for open camera and loop scannig of QR code..
 const video = document.getElementById('video');
 
-navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
+navigator.mediaDevices.getUserMedia({ video: { facingMode: cameraMode } })
     .then(function (stream) {
         video.srcObject = stream;
         video.play();
@@ -28,6 +28,8 @@ video.addEventListener('play', function () {
         if (code) {
             console.log('QR Code detected:', code.data);
             search.innerHTML = code.data;
+            var searchHeight = search.scrollHeight;
+            search.style.height = searchHeight + 'px';
             // You can do whatever you want with the scanned QR code data here
             // For example, display it on the page or send it to a server
         }
@@ -48,4 +50,21 @@ function searchWeb() {
         message.style.backgroundColor = "transperant";
         message.innerHTML = "search bro now";
     }
+}
+
+function changeCameraMode() {
+    if (cameraMode == "environment") {
+        cameraMode == "user";
+    }
+    else {
+        cameraMode == "environment";
+    }
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: cameraMode } })
+    .then(function (stream) {
+        video.srcObject = stream;
+        video.play();
+    })
+    .catch(function (err) {
+        console.error('Error accessing the camera.', err);
+    });
 }
