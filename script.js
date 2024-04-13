@@ -107,7 +107,7 @@ function changeCameraMode() {
             video.srcObject = stream;
             video.play();
             message.style.color = "black";
-            message.style.backgroundColor = "transperant";
+            message.style.backgroundColor = "rgb(146, 169, 232)";
             message.innerHTML = "Scan &nbsp&nbsp[QR Code]";
         })
         .catch(function (err) {
