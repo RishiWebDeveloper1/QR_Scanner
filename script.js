@@ -1,8 +1,9 @@
+let beep = document.getElementById("beep");
 let search = document.getElementById("search");
 let message = document.getElementById("message");
 let searchURL = document.getElementById("searchURL");
-let copyButtonBox = document.getElementById("copy-button");
 let rotateCam = document.getElementById("rotate-cam");
+let copyButtonBox = document.getElementById("copy-button");
 let cameraMode = "environment";
 let interval = 0;
 // code for open camera and loop scannig of QR code..
@@ -12,9 +13,15 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: cameraMode } })
     .then(function (stream) {
         video.srcObject = stream;
         video.play();
+        message.style.color = "black";
+        message.style.backgroundColor = "transperant";
+        message.innerHTML = "Scan &nbsp&nbsp[QR Code]";
     })
     .catch(function (err) {
         console.error('Error accessing the camera.', err);
+        message.style.color = "white";
+        message.style.backgroundColor = "red";
+        message.innerHTML = "Note:-  *Camera Access is denied by your device!!!";
     });
 
 video.addEventListener('play', function () {
@@ -33,31 +40,29 @@ video.addEventListener('play', function () {
                 console.log('Scaned Empty');
             }
             else if (search.innerHTML.trim() == '') {
+                search.innerHTML = code.data;
                 console.log('QR Code detected:', code.data);
                 search.style.height = '40px';
-                search.innerHTML = code.data;
                 var searchHeight = search.scrollHeight;
                 search.style.height = searchHeight + 'px';
-                let beep = document.getElementById("beep");
                 beep.play();
                 navigator.vibrate([200]);
             }
             else if (search.innerHTML.trim() !== '') {
                 if (search.innerHTML == code.data) {
                     console.log("Same data scanned");
+                    search.innerHTML = code.data;
                     console.log('QR Code detected:', code.data);
                     search.style.height = '40px';
-                    search.innerHTML = code.data;
                     var searchHeight = search.scrollHeight;
                     search.style.height = searchHeight + 'px';
                 }
                 else {
+                    search.innerHTML = code.data;
                     console.log('QR Code detected:', code.data);
                     search.style.height = '40px';
-                    search.innerHTML = code.data;
                     var searchHeight = search.scrollHeight;
                     search.style.height = searchHeight + 'px';
-                    let beep = document.getElementById("beep");
                     beep.play();
                     navigator.vibrate([200]);
                 }
@@ -71,7 +76,7 @@ video.addEventListener('play', function () {
 function searchWeb() {
     if (search.innerHTML.trim() === '') {
         message.style.color = "white";
-        message.style.backgroundColor = "red";
+        message.style.backgroundColor = "orangered";
         message.innerHTML = "Note:-  *Please scan any QR code to search!";
     }
     else {
@@ -101,9 +106,15 @@ function changeCameraMode() {
         .then(function (stream) {
             video.srcObject = stream;
             video.play();
+            message.style.color = "black";
+            message.style.backgroundColor = "transperant";
+            message.innerHTML = "Scan &nbsp&nbsp[QR Code]";
         })
         .catch(function (err) {
             console.error('Error accessing the camera.', err);
+            message.style.color = "white";
+            message.style.backgroundColor = "red";
+            message.innerHTML = "Note:-  *Camera Access is denied by your device!!!";
         });
     setTimeout(function () {
         rotateCam.setAttribute("onclick", "changeCameraMode()");
